@@ -1,1 +1,83 @@
+/* =========================================
+   CUSTOM ANIMATIONS
+   ========================================= */
+@keyframes float-hover {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0px); }
+}
 
+@keyframes rotate { 
+    100% { transform: rotate(360deg); } 
+}
+@keyframes rotate-reverse { 
+    100% { transform: rotate(-360deg); } 
+}
+@keyframes pulse-core { 
+    0%, 100% { transform: scale(1); opacity: 0.5; } 
+    50% { transform: scale(1.2); opacity: 1; } 
+}
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================================
+   CUSTOM UTILITIES
+   ========================================= */
+.screen-active {
+    display: flex !important;
+}
+.app-visible {
+    opacity: 1 !important;
+}
+.loader-hidden {
+    opacity: 0 !important;
+    transform: scale(0.95);
+    pointer-events: none;
+}
+.book-hover-effect:hover {
+    animation: float-hover 1.5s ease-in-out infinite;
+}
+
+/* =========================================
+   SIDE MENU & OVERLAY FIX
+   ========================================= */
+#side-menu {
+    left: -80%;
+    transition: left 0.3s ease-in-out;
+}
+
+#side-menu.open {
+    left: 0 !important;
+}
+
+#overlay {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* =========================================
+   SCREEN DISPLAY FIX (Para hindi mag-conflict sa Tailwind)
+   ========================================= */
+#books-screen,
+#chapters-screen,
+#reading-screen {
+    display: none;
+}
+
+#books-screen.screen-active,
+#chapters-screen.screen-active,
+#reading-screen.screen-active {
+    display: flex !important;
+    flex-direction: column;
+}
+
+/* Siguraduhing hindi magulo ang tab contents */
+#content-book, #content-chapter, #content-verse {
+    height: 100%;
+}
